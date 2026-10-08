@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English 4th Grade - Unit 2 Lesson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            purple: '#8B5CF6',
+                            pink: '#EC4899',
+                            yellow: '#F59E0B',
+                            green: '#10B981',
+                            blue: '#3B82F6',
+                            orange: '#F97316'
+                        }
+                    },
+                    keyframes: {
+                        bounceSoft: {
+                            '0%, 100%': { transform: 'translateY(-3%)' },
+                            '50%': { transform: 'translateY(0)' }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(236, 72, 153, 0.4)' },
+                            '50%': { boxShadow: '0 0 25px rgba(236, 72, 153, 0.8)' }
+                        }
+                    },
+                    animation: {
+                        'bounce-soft': 'bounceSoft 3s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 50%, #fce7f3 100%);
+            min-height: 100vh;
+            user-select: none;
+        }
+
+        /* Perspective for card flipping */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+
+        /* Tooltip style for Ex 6b */
+        .word-clickable {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-block;
+            padding: 2px 4px;
+            border-radius: 6px;
+        }
+        .word-clickable:hover {
+            background-color: #fef08a;
+            color: #854d0e;
+            transform: scale(1.08);
+        }
+
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c084fc;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a855f7;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Top Header Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-purple-100 shadow-sm px-4 py-3">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            
+            <!-- Logo & Title -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white text-2xl shadow-md shadow-purple-200">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="font-display font-bold text-xl md:text-2xl text-purple-900 leading-none">English 4th Grade</h1>
+                    <p class="text-xs font-semibold text-purple-600 mt-1">Unit 2 • Step 1: Daily Routine & Actions</p>
+                </div>
+            </div>
+
+            <!-- Slide Progress Indicators -->
+            <div class="hidden lg:flex items-center gap-2 bg-purple-50 p-1.5 rounded-full border border-purple-100">
+                <button onclick="switchTab(1)" id="tab-btn-1" class="tab-nav px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-purple-600 text-white shadow-sm">
+                    Ex 5: Analogy
+                </button>
+                <button onclick="switchTab(2)" id="tab-btn-2" class="tab-nav px-4 py-1.5 rounded-full text-xs font-bold transition-all text-slate-600 hover:text-purple-600">
+                    Ex 6a: New Words
+                </button>
+                <button onclick="switchTab(3)" id="tab-btn-3" class="tab-nav px-4 py-1.5 rounded-full text-xs font-bold transition-all text-slate-600 hover:text-purple-600">
+                    Ex 6b: Reading
+                </button>
+                <button onclick="switchTab(4)" id="tab-btn-4" class="tab-nav px-4 py-1.5 rounded-full text-xs font-bold transition-all text-slate-600 hover:text-purple-600">
+                    Ex 7: Associations
+                </button>
+                <button onclick="switchTab(5)" id="tab-btn-5" class="tab-nav px-4 py-1.5 rounded-full text-xs font-bold transition-all text-slate-600 hover:text-purple-600">
+                    Quiz Game
+                </button>
+            </div>
+
+            <!-- Right Controls: Stars Counter & Sound Toggle -->
+            <div class="flex items-center gap-3">
+                <div class="bg-amber-100 border border-amber-300 px-3 py-1.5 rounded-full flex items-center gap-2 text-amber-800 font-bold text-sm shadow-sm">
+                    <i class="fa-solid fa-star text-amber-500 animate-bounce"></i>
+                    <span>Stars: <span id="star-counter" class="text-amber-900 font-extrabold text-base">0</span></span>
+                </div>
+                
+                <button id="sound-toggle" onclick="toggleSound()" class="w-10 h-10 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-700 flex items-center justify-center text-lg transition-colors">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Tabs Bar -->
+        <div class="flex lg:hidden overflow-x-auto gap-2 mt-3 pb-1 no-scrollbar">
+            <button onclick="switchTab(1)" id="mtab-btn-1" class="mtab-nav px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap bg-purple-600 text-white">1. Ex 5</button>
+            <button onclick="switchTab(2)" id="mtab-btn-2" class="mtab-nav px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap bg-white text-slate-600 border border-purple-100">2. Ex 6a</button>
+            <button onclick="switchTab(3)" id="mtab-btn-3" class="mtab-nav px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap bg-white text-slate-600 border border-purple-100">3. Ex 6b</button>
+            <button onclick="switchTab(4)" id="mtab-btn-4" class="mtab-nav px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap bg-white text-slate-600 border border-purple-100">4. Ex 7</button>
+            <button onclick="switchTab(5)" id="mtab-btn-5" class="mtab-nav px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap bg-white text-slate-600 border border-purple-100">5. Quiz</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-6xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center">
+
+        <!-- SLIDE 1: EXERCISE 5 (Read by Analogy) -->
+        <section id="slide-1" class="slide-content space-y-6">
+            <div class="bg-white/90 rounded-3xl p-6 md:p-8 shadow-xl border border-white/60 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-amber-200/50 rounded-full blur-2xl -z-10"></div>
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 font-bold text-xs mb-2">Упражнение 5</span>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-800">Прочитай незнакомые слова по аналогии</h2>
+                        <p class="text-slate-600 text-sm mt-1">Сравни уже знакомые правила чтения и новые слова. Нажимай на карточки, чтобы услышать произношение!</p>
+                    </div>
+                    <button onclick="speakText('Read new words by analogy')" class="self-start md:self-auto bg-amber-500 hover:bg-amber-600 text-white font-bold px-4 py-2 rounded-2xl shadow-md transition-all flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-volume-high"></i> Озвучить задание
+                    </button>
+                </div>
+
+                <!-- Word Pair Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <!-- Pair 1 -->
+                    <div class="group bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 hover:border-purple-400 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-bold text-slate-500">in</span>
+                                <i class="fa-solid fa-arrow-right text-purple-400"></i>
+                                <span class="text-2xl font-extrabold text-purple-700">begin</span>
+                            </div>
+                            <button onclick="speakText('in, begin')" class="w-10 h-10 rounded-full bg-purple-200 group-hover:bg-purple-600 text-purple-700 group-hover:text-white flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between text-xs font-semibold text-slate-500 pt-2 border-t border-purple-100">
+                            <span>[ɪn] ➔ [bɪˈɡɪn]</span>
+                            <button onclick="toggleMicrophone(this, 'begin')" class="text-purple-600 hover:text-purple-800 flex items-center gap-1">
+                                <i class="fa-solid fa-microphone"></i> Повторить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pair 2 -->
+                    <div class="group bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-200 hover:border-blue-400 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-bold text-slate-500">fish</span>
+                                <i class="fa-solid fa-arrow-right text-blue-400"></i>
+                                <span class="text-2xl font-extrabold text-blue-700">finish</span>
+                            </div>
+                            <button onclick="speakText('fish, finish')" class="w-10 h-10 rounded-full bg-blue-200 group-hover:bg-blue-600 text-blue-700 group-hover:text-white flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between text-xs font-semibold text-slate-500 pt-2 border-t border-blue-100">
+                            <span>[fɪʃ] ➔ [ˈfɪnɪʃ]</span>
+                            <button onclick="toggleMicrophone(this, 'finish')" class="text-blue-600 hover:text-blue-800 flex items-center gap-1">
+                                <i class="fa-solid fa-microphone"></i> Повторить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pair 3 -->
+                    <div class="group bg-gradient-to-br from-pink-50 to-rose-50 border-2 border-pink-200 hover:border-pink-400 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-bold text-slate-500">Bess</span>
+                                <i class="fa-solid fa-arrow-right text-pink-400"></i>
+                                <span class="text-2xl font-extrabold text-pink-700">dress</span>
+                            </div>
+                            <button onclick="speakText('Bess, dress')" class="w-10 h-10 rounded-full bg-pink-200 group-hover:bg-pink-600 text-pink-700 group-hover:text-white flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between text-xs font-semibold text-slate-500 pt-2 border-t border-pink-100">
+                            <span>[bes] ➔ [dres]</span>
+                            <button onclick="toggleMicrophone(this, 'dress')" class="text-pink-600 hover:text-pink-800 flex items-center gap-1">
+                                <i class="fa-solid fa-microphone"></i> Повторить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pair 4 -->
+                    <div class="group bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-200 hover:border-emerald-400 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-bold text-slate-500">pet</span>
+                                <i class="fa-solid fa-arrow-right text-emerald-400"></i>
+                                <span class="text-2xl font-extrabold text-emerald-700">get</span>
+                            </div>
+                            <button onclick="speakText('pet, get')" class="w-10 h-10 rounded-full bg-emerald-200 group-hover:bg-emerald-600 text-emerald-700 group-hover:text-white flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between text-xs font-semibold text-slate-500 pt-2 border-t border-emerald-100">
+                            <span>[pet] ➔ [ɡet]</span>
+                            <button onclick="toggleMicrophone(this, 'get')" class="text-emerald-600 hover:text-emerald-800 flex items-center gap-1">
+                                <i class="fa-solid fa-microphone"></i> Повторить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pair 5 -->
+                    <div class="group bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200 hover:border-amber-400 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-bold text-slate-500">cup</span>
+                                <i class="fa-solid fa-arrow-right text-amber-400"></i>
+                                <span class="text-2xl font-extrabold text-amber-700">lunch</span>
+                            </div>
+                            <button onclick="speakText('cup, lunch')" class="w-10 h-10 rounded-full bg-amber-200 group-hover:bg-amber-600 text-amber-700 group-hover:text-white flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between text-xs font-semibold text-slate-500 pt-2 border-t border-amber-100">
+                            <span>[kʌp] ➔ [lʌntʃ]</span>
+                            <button onclick="toggleMicrophone(this, 'lunch')" class="text-amber-600 hover:text-amber-800 flex items-center gap-1">
+                                <i class="fa-solid fa-microphone"></i> Повторить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pair 6 -->
+                    <div class="group bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 hover:border-orange-400 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-bold text-slate-500">stone</span>
+                                <i class="fa-solid fa-arrow-right text-orange-400"></i>
+                                <span class="text-2xl font-extrabold text-orange-700">home</span>
+                            </div>
+                            <button onclick="speakText('stone, home')" class="w-10 h-10 rounded-full bg-orange-200 group-hover:bg-orange-600 text-orange-700 group-hover:text-white flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between text-xs font-semibold text-slate-500 pt-2 border-t border-orange-100">
+                            <span>[stəʊn] ➔ [həʊm]</span>
+                            <button onclick="toggleMicrophone(this, 'home')" class="text-orange-600 hover:text-orange-800 flex items-center gap-1">
+                                <i class="fa-solid fa-microphone"></i> Повторить
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Practice Bar -->
+                <div class="mt-6 bg-purple-50 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 border border-purple-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center text-lg font-bold">
+                            💡
+                        </div>
+                        <p class="text-xs sm:text-sm font-semibold text-purple-900">
+                            Прочитай все пары вслух. Нажми кнопку ниже, когда будешь готов перейти к новым словам!
+                        </p>
+                    </div>
+                    <button onclick="earnStar(10); switchTab(2);" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-6 py-2.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                        Отлично! Дальше <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 2: EXERCISE 6a (Vocabulary Flashcards) -->
+        <section id="slide-2" class="slide-content space-y-6 hidden">
+            <div class="bg-white/90 rounded-3xl p-6 md:p-8 shadow-xl border border-white/60">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-purple-100 text-purple-800 font-bold text-xs mb-2">Упражнение 6а</span>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-800">Новые слова и словосочетания</h2>
+                        <p class="text-slate-600 text-sm mt-1">Кликни на карточку, чтобы перевернуть её и узнать перевод. Слушай диктора!</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="flipAllCards()" class="bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold px-4 py-2 rounded-2xl text-xs transition-all">
+                            <i class="fa-solid fa-rotate"></i> Перевернуть все
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Flashcards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <!-- Card 1: begin -->
+                    <div class="card-flip-container h-44 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                        <div class="card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-md border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-white p-4 flex flex-col justify-between">
+                            <!-- Front -->
+                            <div class="card-front absolute inset-0 p-4 backface-hidden flex flex-col justify-between bg-white rounded-2xl">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-3xl">🚀</span>
+                                    <button onclick="event.stopPropagation(); speakText('begin');" class="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors">
+                                        <i class="fa-solid fa-volume-high text-xs"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-black text-purple-900">begin</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">[bɪˈɡɪn]</p>
+                                </div>
+                                <span class="text-[10px] text-purple-400 font-bold text-right">Нажми, чтобы перевернуть ➔</span>
+                            </div>
+                            <!-- Back -->
+                            <div class="card-back absolute inset-0 p-4 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-purple-600 text-white rounded-2xl text-center">
+                                <span class="text-xs opacity-75 uppercase tracking-wider font-bold mb-1">Перевод</span>
+                                <h4 class="text-xl font-bold">начинаться</h4>
+                                <p class="text-xs text-purple-200 mt-2">"School begins at nine."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: breakfast -->
+                    <div class="card-flip-container h-44 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                        <div class="card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-md border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-white p-4 flex flex-col justify-between">
+                            <div class="card-front absolute inset-0 p-4 backface-hidden flex flex-col justify-between bg-white rounded-2xl">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-3xl">🍳</span>
+                                    <button onclick="event.stopPropagation(); speakText('breakfast');" class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-colors">
+                                        <i class="fa-solid fa-volume-high text-xs"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-black text-amber-900">breakfast</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">[ˈbrekfəst]</p>
+                                </div>
+                                <span class="text-[10px] text-amber-400 font-bold text-right">Нажми, чтобы перевернуть ➔</span>
+                            </div>
+                            <div class="card-back absolute inset-0 p-4 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-amber-500 text-white rounded-2xl text-center">
+                                <span class="text-xs opacity-75 uppercase tracking-wider font-bold mb-1">Перевод</span>
+                                <h4 class="text-xl font-bold">завтрак</h4>
+                                <p class="text-xs text-amber-100 mt-2">"Cook breakfast, hot breakfast"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: dress -->
+                    <div class="card-flip-container h-44 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                        <div class="card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-md border-2 border-pink-200 bg-gradient-to-br from-pink-50 to-white p-4 flex flex-col justify-between">
+                            <div class="card-front absolute inset-0 p-4 backface-hidden flex flex-col justify-between bg-white rounded-2xl">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-3xl">👗</span>
+                                    <button onclick="event.stopPropagation(); speakText('dress');" class="w-8 h-8 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors">
+                                        <i class="fa-solid fa-volume-high text-xs"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-black text-pink-900">dress</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">[dres]</p>
+                                </div>
+                                <span class="text-[10px] text-pink-400 font-bold text-right">Нажми, чтобы перевернуть ➔</span>
+                            </div>
+                            <div class="card-back absolute inset-0 p-4 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-pink-600 text-white rounded-2xl text-center">
+                                <span class="text-xs opacity-75 uppercase tracking-wider font-bold mb-1">Перевод</span>
+                                <h4 class="text-xl font-bold">одеваться</h4>
+                                <p class="text-xs text-pink-100 mt-2">"Get up and dress"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: finish -->
+                    <div class="card-flip-container h-44 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                        <div class="card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-md border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-4 flex flex-col justify-between">
+                            <div class="card-front absolute inset-0 p-4 backface-hidden flex flex-col justify-between bg-white rounded-2xl">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-3xl">🏁</span>
+                                    <button onclick="event.stopPropagation(); speakText('finish');" class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-colors">
+                                        <i class="fa-solid fa-volume-high text-xs"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-black text-emerald-900">finish</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">[ˈfɪnɪʃ]</p>
+                                </div>
+                                <span class="text-[10px] text-emerald-400 font-bold text-right">Нажми, чтобы перевернуть ➔</span>
+                            </div>
+                            <div class="card-back absolute inset-0 p-4 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-emerald-600 text-white rounded-2xl text-center">
+                                <span class="text-xs opacity-75 uppercase tracking-wider font-bold mb-1">Перевод</span>
+                                <h4 class="text-xl font-bold">заканчивать(ся)</h4>
+                                <p class="text-xs text-emerald-100 mt-2">"Finish your book"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: get up -->
+                    <div class="card-flip-container h-44 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                        <div class="card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-md border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white p-4 flex flex-col justify-between">
+                            <div class="card-front absolute inset-0 p-4 backface-hidden flex flex-col justify-between bg-white rounded-2xl">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-3xl">⏰</span>
+                                    <button onclick="event.stopPropagation(); speakText('get up');" class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+                                        <i class="fa-solid fa-volume-high text-xs"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-black text-blue-900">get up</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">[ˌɡet ˈʌp]</p>
+                                </div>
+                                <span class="text-[10px] text-blue-400 font-bold text-right">Нажми, чтобы перевернуть ➔</span>
+                            </div>
+                            <div class="card-back absolute inset-0 p-4 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-blue-600 text-white rounded-2xl text-center">
+                                <span class="text-xs opacity-75 uppercase tracking-wider font-bold mb-1">Перевод</span>
+                                <h4 class="text-xl font-bold">вставать с постели</h4>
+                                <p class="text-xs text-blue-100 mt-2">"Get up at 7 o'clock"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: home -->
+                    <div class="card-flip-container h-44 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                        <div class="card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-md border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-white p-4 flex flex-col justify-between">
+                            <div class="card-front absolute inset-0 p-4 backface-hidden flex flex-col justify-between bg-white rounded-2xl">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-3xl">🏡</span>
+                                    <button onclick="event.stopPropagation(); speakText('home');" class="w-8 h-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center hover:bg-orange-600 hover:text-white transition-colors">
+                                        <i class="fa-solid fa-volume-high text-xs"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-black text-orange-900">home</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">[həʊm]</p>
+                                </div>
+                                <span class="text-[10px] text-orange-400 font-bold text-right">Нажми, чтобы перевернуть ➔</span>
+                            </div>
+                            <div class="card-back absolute inset-0 p-4 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-orange-500 text-white rounded-2xl text-center">
+                                <span class="text-xs opacity-75 uppercase tracking-wider font-bold mb-1">Перевод</span>
+                                <h4 class="text-xl font-bold">дом, домашний очаг</h4>
+                                <p class="text-xs text-orange-100 mt-2">"Go home, be at home"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: lunch -->
+                    <div class="card-flip-container h-44 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                        <div class="card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-md border-2 border-red-200 bg-gradient-to-br from-red-50 to-white p-4 flex flex-col justify-between">
+                            <div class="card-front absolute inset-0 p-4 backface-hidden flex flex-col justify-between bg-white rounded-2xl">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-3xl">🥪</span>
+                                    <button onclick="event.stopPropagation(); speakText('lunch');" class="w-8 h-8 rounded-full bg-red-100 text-red-700 flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors">
+                                        <i class="fa-solid fa-volume-high text-xs"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-black text-red-900">lunch</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">[lʌntʃ]</p>
+                                </div>
+                                <span class="text-[10px] text-red-400 font-bold text-right">Нажми, чтобы перевернуть ➔</span>
+                            </div>
+                            <div class="card-back absolute inset-0 p-4 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-red-500 text-white rounded-2xl text-center">
+                                <span class="text-xs opacity-75 uppercase tracking-wider font-bold mb-1">Перевод</span>
+                                <h4 class="text-xl font-bold">ланч, обед</h4>
+                                <p class="text-xs text-red-100 mt-2">"Have lunch at 13:00"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: be on time -->
+                    <div class="card-flip-container h-44 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                        <div class="card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-md border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 to-white p-4 flex flex-col justify-between">
+                            <div class="card-front absolute inset-0 p-4 backface-hidden flex flex-col justify-between bg-white rounded-2xl">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-3xl">⏱️</span>
+                                    <button onclick="event.stopPropagation(); speakText('be on time');" class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-colors">
+                                        <i class="fa-solid fa-volume-high text-xs"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-black text-indigo-900">be on time</h3>
+                                    <p class="text-xs text-slate-500 font-mono mt-1">[biː ɒn taɪm]</p>
+                                </div>
+                                <span class="text-[10px] text-indigo-400 font-bold text-right">Нажми, чтобы перевернуть ➔</span>
+                            </div>
+                            <div class="card-back absolute inset-0 p-4 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-indigo-600 text-white rounded-2xl text-center">
+                                <span class="text-xs opacity-75 uppercase tracking-wider font-bold mb-1">Перевод</span>
+                                <h4 class="text-lg font-bold">быть вовремя</h4>
+                                <p class="text-xs text-indigo-200 mt-2">"Please be on time!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigation Bottom Bar -->
+                <div class="mt-6 flex justify-between items-center">
+                    <button onclick="switchTab(1)" class="px-5 py-2.5 rounded-xl border border-slate-300 font-bold text-slate-600 hover:bg-slate-100 transition-all text-sm">
+                        <i class="fa-solid fa-arrow-left"></i> Назад
+                    </button>
+                    <button onclick="earnStar(15); switchTab(3);" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold px-6 py-2.5 rounded-xl shadow-lg transition-all text-sm">
+                        Перейти к чтению 6b <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 3: EXERCISE 6b (Interactive Reading Sentences) -->
+        <section id="slide-3" class="slide-content space-y-6 hidden">
+            <div class="bg-white/90 rounded-3xl p-6 md:p-8 shadow-xl border border-white/60">
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 font-bold text-xs mb-2">Упражнение 6b</span>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-800">Чтение словосочетаний и предложений</h2>
+                        <p class="text-slate-600 text-sm mt-1">💡 <span class="font-bold text-purple-700">Нажми на ЛЮБОЕ слово</span> в тексте, чтобы увидеть его перевод и транскрипцию!</p>
+                    </div>
+                </div>
+
+                <!-- Live Translation Modal Banner -->
+                <div id="word-translation-popover" class="hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 rounded-2xl shadow-lg mb-6 flex items-center justify-between animate-fade-in">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">✨</span>
+                        <div>
+                            <span id="popover-word-en" class="font-black text-xl text-yellow-300">word</span>
+                            <span id="popover-word-ru" class="ml-3 font-semibold text-white text-base">— перевод</span>
+                        </div>
+                    </div>
+                    <button onclick="speakText(document.getElementById('popover-word-en').innerText)" class="bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-volume-high"></i> Произнести
+                    </button>
+                </div>
+
+                <!-- Text Blocks List -->
+                <div class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+
+                    <!-- Section: begin -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-purple-300 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-extrabold text-purple-700 text-lg">1. begin — begins</span>
+                            <button onclick="speakText('begin - begins: begin the day, begin the book. His school begins at nine. When does the film begin?')" class="text-xs bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold px-3 py-1 rounded-full transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-play"></i> Слушать блок
+                            </button>
+                        </div>
+                        <p class="text-base leading-relaxed text-slate-700 font-medium">
+                            <span class="interactive-sentence">begin the day, begin the book. His school begins at nine. When does the film begin?</span>
+                        </p>
+                    </div>
+
+                    <!-- Section: breakfast -->
+                    <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 hover:border-amber-400 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-extrabold text-amber-800 text-lg">2. breakfast — breakfasts</span>
+                            <button onclick="speakText('breakfast - breakfasts: a good breakfast, a hot breakfast, for breakfast, at breakfast, cook breakfast, have breakfast. When do you usually have breakfast? What does she usually cook for breakfast? Tom always has breakfast at eight o clock in the morning.')" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold px-3 py-1 rounded-full transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-play"></i> Слушать блок
+                            </button>
+                        </div>
+                        <p class="text-base leading-relaxed text-slate-700 font-medium">
+                            <span class="interactive-sentence">a good breakfast, a hot breakfast, for breakfast, at breakfast, cook breakfast, have breakfast. When do you usually have breakfast? What does she usually cook for breakfast? Tom always has breakfast at eight o'clock in the morning.</span>
+                        </p>
+                    </div>
+
+                    <!-- Section: dress -->
+                    <div class="p-4 rounded-2xl bg-pink-50/60 border border-pink-200 hover:border-pink-400 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-extrabold text-pink-800 text-lg">3. dress — dresses</span>
+                            <button onclick="speakText('dress - dresses: dress well, dress in the morning. Jane dresses in her room. Betty is little, she can not dress.')" class="text-xs bg-pink-100 hover:bg-pink-200 text-pink-900 font-bold px-3 py-1 rounded-full transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-play"></i> Слушать блок
+                            </button>
+                        </div>
+                        <p class="text-base leading-relaxed text-slate-700 font-medium">
+                            <span class="interactive-sentence">dress well, dress in the morning. Jane dresses in her room. Betty is little, she can't dress.</span>
+                        </p>
+                    </div>
+
+                    <!-- Section: finish -->
+                    <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200 hover:border-emerald-400 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-extrabold text-emerald-800 text-lg">4. finish — finishes</span>
+                            <button onclick="speakText('finish - finishes: finish the book, finish the text. Ann, finish your breakfast, please. When do you usually finish your work?')" class="text-xs bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold px-3 py-1 rounded-full transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-play"></i> Слушать блок
+                            </button>
+                        </div>
+                        <p class="text-base leading-relaxed text-slate-700 font-medium">
+                            <span class="interactive-sentence">finish the book, finish the text. Ann, finish your breakfast, please. When do you usually finish your work?</span>
+                        </p>
+                    </div>
+
+                    <!-- Section: get up -->
+                    <div class="p-4 rounded-2xl bg-blue-50/60 border border-blue-200 hover:border-blue-400 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-extrabold text-blue-800 text-lg">5. get up — gets up</span>
+                            <button onclick="speakText('get up - gets up: get up in the morning, get up and dress. Jane does not get up at six. She gets up at 7 o clock in the morning.')" class="text-xs bg-blue-100 hover:bg-blue-200 text-blue-900 font-bold px-3 py-1 rounded-full transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-play"></i> Слушать блок
+                            </button>
+                        </div>
+                        <p class="text-base leading-relaxed text-slate-700 font-medium">
+                            <span class="interactive-sentence">get up in the morning, get up and dress. Jane doesn't get up at six. She gets up at 7 o'clock in the morning.</span>
+                        </p>
+                    </div>
+
+                    <!-- Section: home -->
+                    <div class="p-4 rounded-2xl bg-orange-50/60 border border-orange-200 hover:border-orange-400 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-extrabold text-orange-800 text-lg">6. home</span>
+                            <button onclick="speakText('home: my home, go home, be at home. Where is your home? My home is in London. When are you usually at home? It is 8 o clock. Go home!')" class="text-xs bg-orange-100 hover:bg-orange-200 text-orange-900 font-bold px-3 py-1 rounded-full transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-play"></i> Слушать блок
+                            </button>
+                        </div>
+                        <p class="text-base leading-relaxed text-slate-700 font-medium">
+                            <span class="interactive-sentence">my home, go home, be at home. Where is your home? My home is in London. When are you usually at home? It's 8 o'clock. Go home!</span>
+                        </p>
+                    </div>
+
+                    <!-- Section: lunch -->
+                    <div class="p-4 rounded-2xl bg-teal-50/60 border border-teal-200 hover:border-teal-400 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-extrabold text-teal-800 text-lg">7. lunch — lunches</span>
+                            <button onclick="speakText('lunch - lunches: a big lunch, a cold lunch, cook lunch, have lunch, for lunch. Rob never has lunch. Where do you usually have lunch? When we go to the zoo, we usually have our cold lunches with us.')" class="text-xs bg-teal-100 hover:bg-teal-200 text-teal-900 font-bold px-3 py-1 rounded-full transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-play"></i> Слушать блок
+                            </button>
+                        </div>
+                        <p class="text-base leading-relaxed text-slate-700 font-medium">
+                            <span class="interactive-sentence">a big lunch, a cold lunch, cook lunch, have lunch, for lunch. Rob never has lunch. Where do you usually have lunch? When we go to the zoo, we usually have our cold lunches with us.</span>
+                        </p>
+                    </div>
+
+                    <!-- Section: be on time -->
+                    <div class="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-200 hover:border-indigo-400 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-extrabold text-indigo-800 text-lg">8. be on time</span>
+                            <button onclick="speakText('be on time: Please be on time! He is never on time, but she is always on time.')" class="text-xs bg-indigo-100 hover:bg-indigo-200 text-indigo-900 font-bold px-3 py-1 rounded-full transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-play"></i> Слушать блок
+                            </button>
+                        </div>
+                        <p class="text-base leading-relaxed text-slate-700 font-medium">
+                            <span class="interactive-sentence">Please be on time! He is never on time, but she is always on time.</span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Navigation Bottom Bar -->
+                <div class="mt-6 flex justify-between items-center">
+                    <button onclick="switchTab(2)" class="px-5 py-2.5 rounded-xl border border-slate-300 font-bold text-slate-600 hover:bg-slate-100 transition-all text-sm">
+                        <i class="fa-solid fa-arrow-left"></i> Назад
+                    </button>
+                    <button onclick="earnStar(20); switchTab(4);" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold px-6 py-2.5 rounded-xl shadow-lg transition-all text-sm">
+                        Упражнение 7 (Соедини слова) <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 4: EXERCISE 7 (Word Associations Matching Game) -->
+        <section id="slide-4" class="slide-content space-y-6 hidden">
+            <div class="bg-white/90 rounded-3xl p-6 md:p-8 shadow-xl border border-white/60">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs mb-2">Упражнение 7</span>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-800">Соедини слова по ассоциации</h2>
+                        <p class="text-slate-600 text-sm mt-1">Выбери слово из первого столбика, а затем парное слово из второго столбика!</p>
+                    </div>
+                    <button onclick="resetMatchingGame()" class="self-start md:self-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-2xl text-xs transition-all">
+                        <i class="fa-solid fa-rotate-right"></i> Сбросить
+                    </button>
+                </div>
+
+                <!-- Matching columns layout -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+                    
+                    <!-- Column A -->
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-sm text-purple-700 uppercase tracking-wider mb-2 text-center md:text-left">Столбик 1</h3>
+                        <div id="col-a-container" class="space-y-3">
+                            <!-- Populated via JS for shuffle -->
+                        </div>
+                    </div>
+
+                    <!-- Column B -->
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-sm text-pink-700 uppercase tracking-wider mb-2 text-center md:text-left">Столбик 2</h3>
+                        <div id="col-b-container" class="space-y-3">
+                            <!-- Populated via JS for shuffle -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Feedback Toast -->
+                <div id="matching-feedback" class="mt-4 p-3 rounded-2xl text-center font-bold text-sm hidden"></div>
+
+                <!-- Navigation Bottom Bar -->
+                <div class="mt-6 flex justify-between items-center">
+                    <button onclick="switchTab(3)" class="px-5 py-2.5 rounded-xl border border-slate-300 font-bold text-slate-600 hover:bg-slate-100 transition-all text-sm">
+                        <i class="fa-solid fa-arrow-left"></i> Назад
+                    </button>
+                    <button id="ex7-next-btn" onclick="earnStar(25); switchTab(5);" class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold px-6 py-2.5 rounded-xl shadow-lg transition-all text-sm">
+                        Финальная Викторина! 🏆 <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 5: VOCABULARY QUIZ (Match Ex 6a words) -->
+        <section id="slide-5" class="slide-content space-y-6 hidden">
+            <div class="bg-white/90 rounded-3xl p-6 md:p-8 shadow-xl border border-white/60 relative">
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-pink-100 text-pink-800 font-bold text-xs mb-2">Закрепление слов</span>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-800">Игра: Найди пару для каждого слова!</h2>
+                        <p class="text-slate-600 text-sm mt-1">Проверь, как хорошо ты выучил слова из Упражнения 6a!</p>
+                    </div>
+                    <div class="bg-pink-50 border border-pink-200 px-4 py-2 rounded-2xl text-center">
+                        <span class="text-xs font-bold text-pink-600 block">ПАР НАЙДЕНО</span>
+                        <span id="quiz-score" class="text-xl font-black text-pink-900">0 / 8</span>
+                    </div>
+                </div>
+
+                <!-- Quiz Game Board Grid -->
+                <div id="quiz-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- Complete Celebration Canvas Container -->
+                <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+                <!-- Completion Modal -->
+                <div id="completion-modal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center space-y-4 shadow-2xl border-4 border-amber-300 animate-bounce-soft">
+                        <div class="text-6xl">🏆</div>
+                        <h3 class="text-3xl font-black text-purple-900 font-display">Молодец! Отличный результат!</h3>
+                        <p class="text-slate-600 font-medium">Ты успешно выполнил все задания, выучил новые слова и заработал <span id="final-stars" class="font-extrabold text-amber-500">0</span> звёзд!</p>
+                        
+                        <div class="pt-4 flex flex-col gap-2">
+                            <button onclick="restartLesson()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 rounded-2xl shadow-lg text-base hover:opacity-95 transition-all">
+                                <i class="fa-solid fa-rotate-right"></i> Начать урок заново
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Bottom Bar -->
+                <div class="mt-6 flex justify-between items-center">
+                    <button onclick="switchTab(4)" class="px-5 py-2.5 rounded-xl border border-slate-300 font-bold text-slate-600 hover:bg-slate-100 transition-all text-sm">
+                        <i class="fa-solid fa-arrow-left"></i> Назад
+                    </button>
+                    <button onclick="restartLesson()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-5 py-2.5 rounded-xl transition-all text-sm">
+                        <i class="fa-solid fa-rotate-right"></i> Заново
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        /* Global State Variables */
+        let currentTab = 1;
+        let totalStars = 0;
+        let soundEnabled = true;
+
+        /* Dictionary for Ex 6b interactive translation on click */
+        const dictionary = {
+            "begin": "начинать(ся) [bɪˈɡɪn]",
+            "begins": "начинается [bɪˈɡɪnz]",
+            "day": "день [deɪ]",
+            "book": "книга [bʊk]",
+            "school": "школа [skuːl]",
+            "his": "его [hɪz]",
+            "at": "в / около [æt]",
+            "nine": "девять [naɪn]",
+            "when": "когда [wen]",
+            "does": "вспомогательный глагол [dʌz]",
+            "the": "определенный артикль [ðə]",
+            "film": "фильм [fɪlm]",
+            "breakfast": "завтрак [ˈbrekfəst]",
+            "breakfasts": "завтраки [ˈbrekfəsts]",
+            "good": "хороший [ɡʊd]",
+            "hot": "горячий [hɒt]",
+            "for": "на / для [fɔː]",
+            "cook": "готовить [kʊk]",
+            "have": "иметь / кушать [hæv]",
+            "you": "ты / вы [juː]",
+            "usually": "обычно [ˈjuːʒuəli]",
+            "what": "что [wɒt]",
+            "she": "она [ʃiː]",
+            "tom": "Том (имя) [tɒm]",
+            "always": "всегда [ˈɔːlweɪz]",
+            "has": "имеет / кушает [hæz]",
+            "eight": "восемь [eɪt]",
+            "o'clock": "часов [əˈklɒk]",
+            "in": "в / утром [ɪn]",
+            "morning": "утро [ˈmɔːnɪŋ]",
+            "dress": "одеваться / платье [dres]",
+            "dresses": "одевается [ˈdresɪz]",
+            "well": "хорошо [wel]",
+            "room": "комната [ruːm]",
+            "her": "её [hɜː]",
+            "jane": "Джейн [dʒeɪn]",
+            "betty": "Бетти [ˈbeti]",
+            "is": "есть / является [ɪz]",
+            "little": "маленькая [ˈlɪtl]",
+            "can't": "не может [kɑːnt]",
+            "finish": "заканчивать [ˈfɪnɪʃ]",
+            "finishes": "заканчивает [ˈfɪnɪʃɪz]",
+            "text": "текст [tekst]",
+            "ann": "Энн [æn]",
+            "your": "твой / ваш [jɔː]",
+            "please": "пожалуйста [pliːz]",
+            "work": "работа / работать [wɜːk]",
+            "get": "вставать / получать [ɡet]",
+            "up": "вверх / с постели [ʌp]",
+            "gets": "встает [ɡets]",
+            "doesn't": "не [ˈdʌznt]",
+            "six": "шесть [sɪks]",
+            "7": "семь [sev.ən]",
+            "my": "мой / моя [maɪ]",
+            "go": "идти / ехать [ɡəʊ]",
+            "home": "дом / домой [həʊm]",
+            "be": "быть / находиться [biː]",
+            "where": "где [weə]",
+            "london": "Лондон [ˈlʌndən]",
+            "are": "есть / находитесь [ɑː]",
+            "it's": "сейчас / это [ɪts]",
+            "lunch": "ланч / обед [lʌntʃ]",
+            "lunches": "ланчи / обеды [ˈlʌntʃɪz]",
+            "a": "артикль [ə]",
+            "big": "большой [bɪɡ]",
+            "cold": "холодный [kəʊld]",
+            "rob": "Роб [rɒb]",
+            "never": "никогда [ˈnev.ər]",
+            "we": "мы [wiː]",
+            "zoo": "зоопарк [zuː]",
+            "our": "наш / наши [aʊə]",
+            "with": "с [wɪð]",
+            "us": "нами / нас [ʌs]",
+            "on": "в / на [ɒn]",
+            "time": "время [taɪm]",
+            "he": "он [hiː]",
+            "but": "но [bʌt]"
+        };
+
+        /* Web Audio API Sound Generator (Zero external audio file dependency) */
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'success') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.2); // A5
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'pop') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    osc.frequency.exponentialRampToValueAtTime(800, now + 0.08);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } else if (type === 'star') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(659.25, now); // E5
+                    osc.frequency.exponentialRampToValueAtTime(1046.50, now + 0.25); // C6
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.exponentialRampToValueAtTime(110, now + 0.2);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                }
+            } catch (e) {
+                console.log('Audio Context error', e);
+            }
+        }
+
+        /* Speech Synthesis Web API */
+        function speakText(text) {
+            playSound('pop');
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; // Slightly slower for primary school kids
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        /* Sound Toggle Switch */
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const btn = document.getElementById('sound-toggle');
+            if (soundEnabled) {
+                btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                btn.className = "w-10 h-10 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-700 flex items-center justify-center text-lg transition-colors";
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                btn.className = "w-10 h-10 rounded-xl bg-slate-200 text-slate-500 flex items-center justify-center text-lg transition-colors";
+            }
+        }
+
+        /* Tab Switcher Logic */
+        function switchTab(slideNum) {
+            playSound('pop');
+            currentTab = slideNum;
+
+            document.querySelectorAll('.slide-content').forEach(slide => slide.classList.add('hidden'));
+            document.getElementById(`slide-${slideNum}`).classList.remove('hidden');
+
+            // Update desktop navigation button states
+            document.querySelectorAll('.tab-nav').forEach((btn, idx) => {
+                if (idx + 1 === slideNum) {
+                    btn.className = "tab-nav px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-purple-600 text-white shadow-sm";
+                } else {
+                    btn.className = "tab-nav px-4 py-1.5 rounded-full text-xs font-bold transition-all text-slate-600 hover:text-purple-600";
+                }
+            });
+
+            // Update mobile navigation button states
+            document.querySelectorAll('.mtab-nav').forEach((btn, idx) => {
+                if (idx + 1 === slideNum) {
+                    btn.className = "mtab-nav px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap bg-purple-600 text-white";
+                } else {
+                    btn.className = "mtab-nav px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap bg-white text-slate-600 border border-purple-100";
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* Star Scoring System */
+        function earnStar(amount) {
+            totalStars += amount;
+            document.getElementById('star-counter').innerText = totalStars;
+            playSound('star');
+        }
+
+        /* Flashcard Flip Handler (Ex 6a) */
+        function flipCard(cardElem) {
+            playSound('pop');
+            const cardInner = cardElem.querySelector('.card-inner');
+            cardInner.classList.toggle('rotate-y-180');
+        }
+
+        function flipAllCards() {
+            playSound('pop');
+            const allInner = document.querySelectorAll('.card-inner');
+            allInner.forEach(card => card.classList.toggle('rotate-y-180'));
+        }
+
+        /* Simulated Practice Microphone Handler */
+        function toggleMicrophone(btnElem, word) {
+            speakText(word);
+            btnElem.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Слушаю...';
+            btnElem.classList.add('text-amber-600');
+
+            setTimeout(() => {
+                btnElem.innerHTML = '<i class="fa-solid fa-check text-green-500"></i> Отлично!';
+                playSound('success');
+                setTimeout(() => {
+                    btnElem.innerHTML = '<i class="fa-solid fa-microphone"></i> Повторить';
+                    btnElem.classList.remove('text-amber-600');
+                }, 1500);
+            }, 1200);
+        }
+
+        /* Initialize Interactive Sentences in Exercise 6b */
+        function setupInteractiveSentences() {
+            const sentenceContainers = document.querySelectorAll('.interactive-sentence');
+
+            sentenceContainers.forEach(container => {
+                const text = container.innerText;
+                // Split text into tokens preserving spaces and punctuation
+                const tokens = text.match(/([a-zA-Z0-9']+|[^\s\a-zA-Z0-9']+|\s+)/g) || [];
+
+                let html = '';
+                tokens.forEach(token => {
+                    const cleanWord = token.toLowerCase().replace(/[^a-z0-9']/g, '');
+                    if (cleanWord && dictionary[cleanWord]) {
+                        html += `<span class="word-clickable" onclick="showWordTranslation('${cleanWord}', '${token}')">${token}</span>`;
+                    } else {
+                        html += token;
+                    }
+                });
+
+                container.innerHTML = html;
+            });
+        }
+
+        function showWordTranslation(cleanWord, originalWord) {
+            playSound('pop');
+            speakText(cleanWord);
+
+            const popover = document.getElementById('word-translation-popover');
+            const wordEnElem = document.getElementById('popover-word-en');
+            const wordRuElem = document.getElementById('popover-word-ru');
+
+            wordEnElem.innerText = originalWord;
+            wordRuElem.innerText = `— ${dictionary[cleanWord] || 'перевод'}`;
+
+            popover.classList.remove('hidden');
+        }
+
+        /* Exercise 7 Matching Game Logic */
+        const ex7Pairs = [
+            { id: 1, a: "get up", b: "go to bed" },
+            { id: 2, a: "home", b: "work" },
+            { id: 3, a: "why", b: "who" },
+            { id: 4, a: "lunch", b: "breakfast" },
+            { id: 5, a: "begin", b: "finish" },
+            { id: 6, a: "morning", b: "evening" }
+        ];
+
+        let ex7SelectedA = null;
+        let ex7SelectedB = null;
+        let ex7MatchedCount = 0;
+
+        function initMatchingGame() {
+            const colAContainer = document.getElementById('col-a-container');
+            const colBContainer = document.getElementById('col-b-container');
+
+            colAContainer.innerHTML = '';
+            colBContainer.innerHTML = '';
+
+            // Shuffle Column B
+            const shuffledB = [...ex7Pairs].sort(() => Math.random() - 0.5);
+
+            ex7Pairs.forEach(pair => {
+                const btnA = document.createElement('button');
+                btnA.className = "w-full p-4 rounded-2xl bg-white border-2 border-purple-200 text-slate-800 font-bold text-base hover:border-purple-500 hover:bg-purple-50 transition-all flex items-center justify-between shadow-sm";
+                btnA.setAttribute('data-id', pair.id);
+                btnA.innerHTML = `<span>${pair.a}</span> <i class="fa-regular fa-circle text-purple-300"></i>`;
+                btnA.onclick = () => selectColA(btnA, pair.id);
+                colAContainer.appendChild(btnA);
+            });
+
+            shuffledB.forEach(pair => {
+                const btnB = document.createElement('button');
+                btnB.className = "w-full p-4 rounded-2xl bg-white border-2 border-pink-200 text-slate-800 font-bold text-base hover:border-pink-500 hover:bg-pink-50 transition-all flex items-center justify-between shadow-sm";
+                btnB.setAttribute('data-id', pair.id);
+                btnB.innerHTML = `<span>${pair.b}</span> <i class="fa-regular fa-circle text-pink-300"></i>`;
+                btnB.onclick = () => selectColB(btnB, pair.id);
+                colBContainer.appendChild(btnB);
+            });
+
+            ex7SelectedA = null;
+            ex7SelectedB = null;
+            ex7MatchedCount = 0;
+            document.getElementById('matching-feedback').className = 'hidden';
+        }
+
+        function selectColA(btn, id) {
+            playSound('pop');
+            if (btn.classList.contains('matched')) return;
+
+            document.querySelectorAll('#col-a-container button').forEach(b => {
+                if (!b.classList.contains('matched')) {
+                    b.className = "w-full p-4 rounded-2xl bg-white border-2 border-purple-200 text-slate-800 font-bold text-base hover:border-purple-500 hover:bg-purple-50 transition-all flex items-center justify-between shadow-sm";
+                }
+            });
+
+            btn.className = "w-full p-4 rounded-2xl bg-purple-100 border-2 border-purple-600 text-purple-900 font-bold text-base transition-all flex items-center justify-between shadow-md";
+            ex7SelectedA = { btn, id };
+
+            checkEx7Match();
+        }
+
+        function selectColB(btn, id) {
+            playSound('pop');
+            if (btn.classList.contains('matched')) return;
+
+            document.querySelectorAll('#col-b-container button').forEach(b => {
+                if (!b.classList.contains('matched')) {
+                    b.className = "w-full p-4 rounded-2xl bg-white border-2 border-pink-200 text-slate-800 font-bold text-base hover:border-pink-500 hover:bg-pink-50 transition-all flex items-center justify-between shadow-sm";
+                }
+            });
+
+            btn.className = "w-full p-4 rounded-2xl bg-pink-100 border-2 border-pink-600 text-pink-900 font-bold text-base transition-all flex items-center justify-between shadow-md";
+            ex7SelectedB = { btn, id };
+
+            checkEx7Match();
+        }
+
+        function checkEx7Match() {
+            if (ex7SelectedA && ex7SelectedB) {
+                if (ex7SelectedA.id === ex7SelectedB.id) {
+                    // Match Success
+                    playSound('success');
+                    ex7SelectedA.btn.className = "w-full p-4 rounded-2xl bg-emerald-100 border-2 border-emerald-500 text-emerald-900 font-bold text-base flex items-center justify-between matched";
+                    ex7SelectedB.btn.className = "w-full p-4 rounded-2xl bg-emerald-100 border-2 border-emerald-500 text-emerald-900 font-bold text-base flex items-center justify-between matched";
+
+                    ex7SelectedA.btn.innerHTML = `<span>${ex7SelectedA.btn.innerText}</span> <i class="fa-solid fa-circle-check text-emerald-600"></i>`;
+                    ex7SelectedB.btn.innerHTML = `<span>${ex7SelectedB.btn.innerText}</span> <i class="fa-solid fa-circle-check text-emerald-600"></i>`;
+
+                    ex7MatchedCount++;
+                    earnStar(5);
+
+                    if (ex7MatchedCount === ex7Pairs.length) {
+                        const feedback = document.getElementById('matching-feedback');
+                        feedback.className = "mt-4 p-4 rounded-2xl bg-emerald-500 text-white font-bold text-center text-lg block animate-bounce-soft";
+                        feedback.innerText = "🎉 Супер! Все ассоциации найдены правильно!";
+                    }
+
+                } else {
+                    // Match Failed
+                    playSound('wrong');
+                    ex7SelectedA.btn.className = "w-full p-4 rounded-2xl bg-red-100 border-2 border-red-400 text-red-900 font-bold text-base flex items-center justify-between";
+                    ex7SelectedB.btn.className = "w-full p-4 rounded-2xl bg-red-100 border-2 border-red-400 text-red-900 font-bold text-base flex items-center justify-between";
+
+                    setTimeout(() => {
+                        if (!ex7SelectedA.btn.classList.contains('matched')) {
+                            ex7SelectedA.btn.className = "w-full p-4 rounded-2xl bg-white border-2 border-purple-200 text-slate-800 font-bold text-base hover:border-purple-500 hover:bg-purple-50 transition-all flex items-center justify-between shadow-sm";
+                        }
+                        if (!ex7SelectedB.btn.classList.contains('matched')) {
+                            ex7SelectedB.btn.className = "w-full p-4 rounded-2xl bg-white border-2 border-pink-200 text-slate-800 font-bold text-base hover:border-pink-500 hover:bg-pink-50 transition-all flex items-center justify-between shadow-sm";
+                        }
+                        ex7SelectedA = null;
+                        ex7SelectedB = null;
+                    }, 800);
+                    return;
+                }
+
+                ex7SelectedA = null;
+                ex7SelectedB = null;
+            }
+        }
+
+        function resetMatchingGame() {
+            playSound('pop');
+            initMatchingGame();
+        }
+
+        /* Slide 5: Quiz Game Logic */
+        const quizWords = [
+            { id: 1, en: "begin", ru: "начинаться" },
+            { id: 2, en: "breakfast", ru: "завтрак" },
+            { id: 3, en: "dress", ru: "одеваться" },
+            { id: 4, en: "finish", ru: "заканчивать(ся)" },
+            { id: 5, en: "get up", ru: "вставать с постели" },
+            { id: 6, en: "home", ru: "дом, домашний очаг" },
+            { id: 7, en: "lunch", ru: "ланч (обед)" },
+            { id: 8, en: "be on time", ru: "быть вовремя" }
+        ];
+
+        let quizSelectedCard = null;
+        let quizPairsFound = 0;
+
+        function initQuizGame() {
+            quizPairsFound = 0;
+            quizSelectedCard = null;
+            document.getElementById('quiz-score').innerText = `0 / ${quizWords.length}`;
+
+            let cardsData = [];
+            quizWords.forEach(item => {
+                cardsData.push({ id: item.id, text: item.en, type: 'en' });
+                cardsData.push({ id: item.id, text: item.ru, type: 'ru' });
+            });
+
+            // Shuffle cards
+            cardsData.sort(() => Math.random() - 0.5);
+
+            const grid = document.getElementById('quiz-grid');
+            grid.innerHTML = '';
+
+            cardsData.forEach(card => {
+                const cardBtn = document.createElement('button');
+                cardBtn.className = "p-4 min-h-[90px] rounded-2xl bg-white border-2 border-slate-200 hover:border-pink-400 font-bold text-slate-800 text-sm md:text-base flex items-center justify-center text-center shadow-sm hover:shadow-md transition-all";
+                cardBtn.setAttribute('data-id', card.id);
+                cardBtn.setAttribute('data-type', card.type);
+                cardBtn.innerText = card.text;
+
+                cardBtn.onclick = () => handleQuizCardClick(cardBtn, card);
+                grid.appendChild(cardBtn);
+            });
+        }
+
+        function handleQuizCardClick(cardBtn, cardData) {
+            playSound('pop');
+            if (cardBtn.classList.contains('matched') || cardBtn === quizSelectedCard?.btn) return;
+
+            if (cardData.type === 'en') {
+                speakText(cardData.text);
+            }
+
+            if (!quizSelectedCard) {
+                // First selection
+                quizSelectedCard = { btn: cardBtn, data: cardData };
+                cardBtn.className = "p-4 min-h-[90px] rounded-2xl bg-pink-100 border-2 border-pink-500 font-bold text-pink-900 text-sm md:text-base flex items-center justify-center text-center shadow-md";
+            } else {
+                // Second selection
+                if (quizSelectedCard.data.id === cardData.id && quizSelectedCard.data.type !== cardData.type) {
+                    // Success Pair
+                    playSound('success');
+                    cardBtn.className = "p-4 min-h-[90px] rounded-2xl bg-emerald-100 border-2 border-emerald-500 font-extrabold text-emerald-900 text-sm md:text-base flex items-center justify-center text-center matched scale-95 transition-transform";
+                    quizSelectedCard.btn.className = "p-4 min-h-[90px] rounded-2xl bg-emerald-100 border-2 border-emerald-500 font-extrabold text-emerald-900 text-sm md:text-base flex items-center justify-center text-center matched scale-95 transition-transform";
+
+                    quizPairsFound++;
+                    earnStar(10);
+                    document.getElementById('quiz-score').innerText = `${quizPairsFound} / ${quizWords.length}`;
+
+                    quizSelectedCard = null;
+
+                    if (quizPairsFound === quizWords.length) {
+                        setTimeout(() => {
+                            showCompletionModal();
+                        }, 500);
+                    }
+                } else {
+                    // Failed Pair
+                    playSound('wrong');
+                    cardBtn.className = "p-4 min-h-[90px] rounded-2xl bg-red-100 border-2 border-red-400 font-bold text-red-900 text-sm md:text-base flex items-center justify-center text-center";
+
+                    const prevBtn = quizSelectedCard.btn;
+                    quizSelectedCard = null;
+
+                    setTimeout(() => {
+                        if (!cardBtn.classList.contains('matched')) {
+                            cardBtn.className = "p-4 min-h-[90px] rounded-2xl bg-white border-2 border-slate-200 hover:border-pink-400 font-bold text-slate-800 text-sm md:text-base flex items-center justify-center text-center shadow-sm";
+                        }
+                        if (!prevBtn.classList.contains('matched')) {
+                            prevBtn.className = "p-4 min-h-[90px] rounded-2xl bg-white border-2 border-slate-200 hover:border-pink-400 font-bold text-slate-800 text-sm md:text-base flex items-center justify-center text-center shadow-sm";
+                        }
+                    }, 700);
+                }
+            }
+        }
+
+        function showCompletionModal() {
+            playSound('star');
+            document.getElementById('final-stars').innerText = totalStars;
+            document.getElementById('completion-modal').classList.remove('hidden');
+            launchConfetti();
+        }
+
+        function restartLesson() {
+            document.getElementById('completion-modal').classList.add('hidden');
+            totalStars = 0;
+            document.getElementById('star-counter').innerText = 0;
+            initMatchingGame();
+            initQuizGame();
+            switchTab(1);
+        }
+
+        /* Lightweight Canvas Confetti Particles Effect */
+        function launchConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const colors = ['#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#3B82F6'];
+
+            for (let i = 0; i < 120; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    vy: Math.random() * 3 + 2,
+                    vx: Math.random() * 2 - 1
+                });
+            }
+
+            let animationFrame;
+            function render() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.y += p.vy;
+                    p.x += p.vx;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                if (particles.some(p => p.y < canvas.height)) {
+                    animationFrame = requestAnimationFrame(render);
+                }
+            }
+            render();
+        }
+
+        /* On Page Load Initializer */
+        window.onload = function() {
+            setupInteractiveSentences();
+            initMatchingGame();
+            initQuizGame();
+        };
+    </script>
+</body>
+</html>
